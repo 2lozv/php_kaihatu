@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<title>管理者ページ</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<!-- <ul>
+		<li><a href="kanri.php?mode=item">商品</a></li>
+		<li><a href="kanri.php?mode=logout">ログアウト</a></li>
+	</ul>
+	<br> -->
+	<!-- <h1>管理者ページ</h1> -->
+
+	<h2>求人編集</h2>
+	<form method="get" action="kanri.php">
+		<table>
+			<tr>
+				<td>商品ID</td>
+				<td>!id!</td>
+			</tr>
+			<tr>
+				<td>店名</td>
+				<td><input name="shop_name" type="text" value="!shop_name!"></td>
+			</tr>
+			<tr>
+				<td>キャッチコピー</td>
+				<td><input name="slogan" type="text" value="!slogan!"></td>
+			</tr>
+			<tr>
+				<td>職種</td>
+				<td><input name="job" type="text" value="!job!"></td>
+			</tr>
+			<tr>
+				<td>最寄り駅</td>
+				<td><input name="station" type="text" value="!station!"></td>
+			</tr>
+			<tr>
+				<td>時給</td>
+				<td><input name="hourly" type="text" value="!hourly!"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" name="sub" value="更新"></td>
+
+				<input type="hidden" name="mode" value="update">
+				<input type="hidden" name="id" value="!id!">
+			</tr>
+		</table>
+
+	</form>
+
+	</table>
+</body>
+</html>

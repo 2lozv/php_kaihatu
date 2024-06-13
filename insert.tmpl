@@ -1,0 +1,21 @@
+<tr>
+    <td>!id!</td>
+    <td>!shop_name!</td>
+    <td>!slogan!</td>
+    <td>!job!</td>
+    <td>!station!</td>
+    <td>!hourly!</td>
+    <td>
+        <form action="kanri.php" method="get">
+            <input type="submit" value="編集">
+            <input type="hidden" name="mode" value="edit">
+            <input type="hidden" name="id" value="!id!">
+        </form>
+
+        <form>
+            <input type="submit" value="削除">
+            <input type="hidden" name="mode" value="delete">
+            <input type="hidden" name="id" value="!id!">
+        </form>
+    </td>
+</tr>

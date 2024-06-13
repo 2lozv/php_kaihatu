@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>求人</h1>
+        <p><a href="login.html">管理者ページ</a></p>
+        <p><a href="user_fav.html">お気に入り</a></p>
+    </header>
+
+    <main>
+        <form action="user.php" method="get">
+            <p>フリーワード検索</p>
+            <input type="text" name="search" placeholder="最寄り駅・職種・時給……">
+            <input type="submit" value="検索">
+            <input type="hidden" name="mode" value="search">
+        </form>
+
+        <form action="user.php" method="get">
+            <select name="narabekae">
+                <option value="desc">新しい順</option>
+                <option value="hourly">時給が高い順</option>
+            </select>
+            <input type="submit" value="検索">
+            <input type="hidden" name="mode" value="narabekae">
+        </form>
+
+        <h2>求人一覧</h2>
+        <div class="user_joblist">
+            !block!
+        </div>
+    </main>
+</body>
+</html>

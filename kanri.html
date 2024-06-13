@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <title>管理者ページ</title>
+
+    <style>
+        input[type="submit"],
+        input[type="text"]
+        {
+        border: none;
+        }
+        
+        input[type="text"]
+        {
+        background: #d7d7d7;
+        display: block;
+        font-size: 16px;
+        width: 80%;
+        height: 40px;
+        border-radius: 0;
+        }
+        
+        .form-table {
+        width: 80%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        text-align: center;
+        }
+        
+        .form-table th,
+        .form-table td {
+        border-top: 1px solid #d7d7d7;
+        border-bottom: 1px solid #d7d7d7;
+        padding: 20px;
+        }
+
+        .button{
+            width: 300px;
+            padding: 10px;
+            display: block;
+            margin: 0 auto;
+            background-color: #585858;
+            color: white;
+            font-size: 1.1rem;
+        }
+
+        .job_list{
+            /* background-color: #f5f5f5; */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>管理者ページ</h1>
+        <p><a href="user.php">ユーザー画面へ</a></p>
+    </header>
+
+    <div class="form">
+        <h2>求人登録</h2>
+
+        <form action="kanri.php" method="get">
+            <table class="form-table">
+                <tbody>
+                  <tr>
+                    <td>店名</td>
+                    <td><input type="text" name="shop_name" value="" required></td>
+                  </tr>
+                  <tr>
+                    <td>キャッチコピー</td>
+                    <td><input type="text" name="slogan" value="" required></td>
+                  </tr>
+                  <tr>
+                    <td>職種</td>
+                    <td><input type="text" name="job" value="" required></td>
+                  </tr>
+                  <tr>
+                    <td>最寄り駅</td>
+                    <td><input type="text" name="station" value="" required></td>
+                  </tr>
+                  <tr>
+                    <td>時給</td>
+                    <td><input type="text" name="hourly" value="" required></td>
+                  </tr>
+                  </tbody>
+                  </table>
+
+                    <input type="submit" value="送信" class="button">
+                    <input type="hidden" name="mode" value="register">
+        </form>
+    </div>
+
+
+    <div class="job_list">
+        <h2>求人一覧</h2>
+        <table>
+            <tr>
+                <th>id</th>
+                <th>店名</th>
+                <th>キャッチコピー</th>
+                <th>職種</th>
+                <th>最寄り駅</th>
+                <th>時給</th>
+            </tr>
+            !block! <!--データベースからとってきた値をここに挿入-->
+        </table>
+    </div>
+</body>
+</html>
