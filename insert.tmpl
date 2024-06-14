@@ -1,21 +1,38 @@
-<tr>
-    <td>!id!</td>
-    <td>!shop_name!</td>
-    <td>!slogan!</td>
-    <td>!job!</td>
-    <td>!station!</td>
-    <td>!hourly!</td>
-    <td>
-        <form action="kanri.php" method="get">
-            <input type="submit" value="編集">
-            <input type="hidden" name="mode" value="edit">
-            <input type="hidden" name="id" value="!id!">
-        </form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        tr{
+            border-top: #d7d7d7 3px solid;
+        }
+    </style>
+</head>
 
-        <form>
-            <input type="submit" value="削除">
-            <input type="hidden" name="mode" value="delete">
-            <input type="hidden" name="id" value="!id!">
-        </form>
-    </td>
-</tr>
+<body>
+    <tr>
+        <td>!id!</td>
+        <td>!shop_name!</td>
+        <td>!slogan!</td>
+        <td>!job!</td>
+        <td>!station!</td>
+        <td>!hourly!</td>
+        <td>
+            <form action="kanri.php" method="get">
+                <input type="submit" value="編集">
+                <input type="hidden" name="mode" value="edit">
+                <input type="hidden" name="id" value="!id!">
+            </form>
+        </td>
+
+        <td>
+            <form>
+                <input type="submit" value="削除">
+                <input type="hidden" name="mode" value="delete">
+                <input type="hidden" name="id" value="!id!">
+            </form>
+        </td>
+    </tr>
+</body>

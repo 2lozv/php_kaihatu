@@ -266,44 +266,40 @@ function fav(){
 
 }
     
-    function fav_display(){
-        global $dbh, $input;
+function fav_display(){
+    global $dbh, $input;
 
-        // flag = 2 のレコード（お気に入り）を取得する
-        $sql = "SELECT * FROM job_table WHERE flag = 2";
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute();
-    
-        // ブロックを初期化する
-        $block = "";
-    
-        // テンプレートファイルを読み込む
-        $fh = fopen("user_fav.tmpl", "r+");
-        $fs = filesize("user_fav.tmpl");
-        $top = fread($fh, $fs);
-    
-        // 取得したレコードをループする
-        while($row = $stmt->fetch()){ 
-            // テンプレート内のプレースホルダーをデータベースのデータで置き換える
-            $insert = str_replace("!id!", $row["id"], $top);
-            $insert = str_replace("!shop_name!", $row["shop_name"], $insert);
-            $insert = str_replace("!slogan!", $row["slogan"], $insert);
-            $insert = str_replace("!job!", $row["job"], $insert);
-            $insert = str_replace("!station!", $row["station"], $insert);
-            $insert = str_replace("!hourly!", $row["hourly"], $insert);
-    
-            // ブロックに追加する
-            $block .= $insert;
-        }
-    
-        $fh = fopen("user_fav.html", "r+");
-        $fs = filesize("user_fav.html");
-        $top = fread($fh, $fs); //80~82行目でやったことと同じ
-    
-        // テンプレート内の !block! を生成されたブロックで置き換える
-        $top = str_replace("!block!", $block, $top);
-    
-        // 変更されたテンプレートを出力する
-        echo $top;
-        
+    // flag = 2 のレコード（お気に入り）を取得する
+    $sql = "SELECT * FROM job_table WHERE flag = 2";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute();
+
+    // ブロックを初期化する
+    $block = "";
+
+    // テンプレートファイルを読み込む
+    $template = file_get_contents("user_fav.tmpl");
+
+    // 取得したレコードをループする
+    while($row = $stmt->fetch()){ 
+        // テンプレート内のプレースホルダーをデータベースのデータで置き換える
+        $insert = preg_replace('!id!', $row["id"], $template);
+        $insert = preg_replace('!shop_name!', $row["shop_name"], $insert);
+        $insert = preg_replace('!slogan!', $row["slogan"], $insert);
+        $insert = preg_replace('!job!', $row["job"], $insert);
+        $insert = preg_replace('!station!', $row["station"], $insert);
+        $insert = preg_replace('!hourly!', $row["hourly"], $insert);
+
+        // ブロックに追加する
+        $block .= $insert;
+    }
+
+    // HTML テンプレートを読み込む
+    $html_template = file_get_contents("user_fav.html");
+
+    // テンプレート内の !block! を生成されたブロックで置き換える
+    $html_output = preg_replace('!block!', $block, $html_template);
+
+    // 変更されたテンプレートを出力する
+    echo $html_output;
 }

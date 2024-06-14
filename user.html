@@ -3,35 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    <title>athome求人</title>
+
+    <style>
+        header{
+            background-color: #C10837;
+            display: flex;
+            justify-content: space-between;
+            /* align-items: top; */
+            color: #fff;
+            padding: 0 30px;
+            height: 200px;
+        }
+
+        header a{
+            color: #fff;
+            text-decoration: none;
+        }
+
+        header .nav{
+            display: flex;
+            align-items: top;
+        }
+
+        header .nav p{
+            display: flex;
+            align-items: center;
+            margin-right: 8px;
+            margin-bottom: 110px;
+        }
+
+        header .nav p::after{
+            display: block;
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-top: #fff 3px solid;
+            border-right: #fff 3px solid;
+            transform: rotate(45deg);
+            margin-left: 3px;
+        }
+
+        header a:hover{
+        color: #C10837;
+        transition: 0.3s;
+      }
+
+      main{
+        position: relative;
+    }
+    
+    .inner{
+        width: 90%;
+        border: #d7d7d7 solid 2px;
+        background-color: #fff;
+        z-index: 1000;
+        position: absolute;
+        top: -100px;
+        right: 0;
+        left: 0;
+        margin: 0 auto;
+    }
+
+    .inner h2{
+        font-size: 1.8rem;
+        border-bottom: #C10837 5px dashed;
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 50px;
+        text-align: center;
+    }
+    
+    .search1 p{
+        font-size: 1.5rem;
+        text-align: center;
+        margin-top: 60px;
+    }
+
+    input[type="text"]{
+        width: 500px;
+        height: 30px;
+        display: block;
+        margin: 0 auto;
+    }
+
+    .button{
+        
+    }
+
+    .search2 {
+        margin: 20px;
+        display: flex;
+    }
+
+    .button_s{
+        padding: 5px;
+        display: block;
+        background-color: #585858;
+        color: white;
+        border: none;
+    }
+
+    .user_joblist{
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin: 30px 0;
+    }
+    </style>
 </head>
 <body>
     <header>
-        <h1>求人</h1>
-        <p><a href="login.html">管理者ページ</a></p>
-        <p><a href="user_fav.html">お気に入り</a></p>
+        <h1>athome求人</h1>
+        <div class="nav">
+            <p><a href="login.html">管理者ページ</a></p>
+            <p><a href="user_fav.html">お気に入り</a></p>
+        </div>
     </header>
 
     <main>
-        <form action="user.php" method="get">
-            <p>フリーワード検索</p>
-            <input type="text" name="search" placeholder="最寄り駅・職種・時給……">
-            <input type="submit" value="検索">
-            <input type="hidden" name="mode" value="search">
-        </form>
+        <div class="inner">
+            <h2>athome求人にようこそ！さっそくお仕事を探してみよう！</h2>
 
-        <form action="user.php" method="get">
-            <select name="narabekae">
-                <option value="desc">新しい順</option>
-                <option value="hourly">時給が高い順</option>
-            </select>
-            <input type="submit" value="検索">
-            <input type="hidden" name="mode" value="narabekae">
-        </form>
+            <div class="search1">
+                <form action="user.php" method="get">
+                    <p>なんでもフリーワード検索</p>
+                    <input type="text" name="search" placeholder="最寄り駅・職種・時給……">
+                    <p><input type="submit" value="検索" class="button"></p>
+                    <input type="hidden" name="mode" value="search">
+                </form>
+            </div>
 
-        <h2>求人一覧</h2>
-        <div class="user_joblist">
-            !block!
+            
+            <h2>求人一覧</h2>
+            <div class="search2">
+                <form action="user.php" method="get">
+                    <select name="narabekae" class="narabekae">
+                        <option value="desc">新しい順</option>
+                        <option value="hourly">時給が高い順</option>
+                    </select>
+                    <input type="submit" value="検索" class="button_s">
+                    <input type="hidden" name="mode" value="narabekae">
+                </form>
+            </div>
+            <div class="user_joblist">
+                !block!
+            </div>
         </div>
     </main>
 </body>
