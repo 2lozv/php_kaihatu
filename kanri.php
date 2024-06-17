@@ -33,10 +33,6 @@ try{
         register(); //登録処理
     }else if(isset($input["mode"]) && $input["mode"] == "delete"){
         delete();
-    }else if(isset($input["mode"]) && $input["mode"] == "edit"){
-        edit();
-    }else if(isset($input["mode"]) && $input["mode"] == "update"){
-        update();
     }
     display(); //表示処理
 }catch(PDOException $e){
@@ -85,69 +81,6 @@ function delete(){
 
     $stmt -> execute();
 
-}
-
-function edit(){
-    global $dbh, $input,$top;
-
-    $sql=<<<sql
-        SELECT * FROM job_table WHERE id = ?;
-    sql;
-    $stmt = $dbh->prepare($sql);
-    $stmt->bindParam(1, $input["id"]);
-    $stmt->execute();
-
-    //テンプレートファイルの読み込み
-    $fh = fopen("edit.tmpl", "r+"); //読み込みモードで。insert.tmlを開く
-    $fs = filesize("edit.tmpl"); //ファイルサイズを調べる(のちのfread関数で使う)
-    $insert_tmpl = fread($fh, $fs); //ファイルの読み込みを行う
-
-    $row = $stmt -> fetch();
-
-    //差し込み用テンプレートを初期化する
-    $insert = $insert_tmpl;
-
-    //DBの値を、PHPで使用する値として、変数に入れなおす
-    $id = $row["id"];
-    $shop_name = $row["shop_name"];
-    $slogan = $row["slogan"];
-    $job = $row["job"];
-    $station = $row["station"];
-    $hourly = $row["hourly"];
-
-    //テンプレートファイルの文字を置き換える
-    $insert = str_replace("!id!", $id, $insert);
-    $insert = str_replace("!shop_name!", $shop_name, $insert);
-    $insert = str_replace("!slogan!", $slogan, $insert);
-    $insert = str_replace("!job!", $job, $insert);
-    $insert = str_replace("!station!", $station, $insert);
-    $insert = str_replace("!hourly!", $hourly, $insert);
-
-    $edit = "";
-    $edit .= $insert;
-
-    echo $edit;
-}
-
-function update(){
-    global $dbh, $input;
-
-    $sql=<<<sql
-        UPDATE job_table SET shop_name=?, slogan=?, job=?, station=?, hourly=? WHERE id=?;
-    sql;
-    $stmt = $dbh->prepare($sql);
-    $stmt->bindParam(1, $input["shop_name"]);
-    $stmt->bindParam(2, $input["slogan"]);
-    $stmt->bindParam(3, $input["job"]);
-    $stmt->bindParam(4, $input["station"]);
-    $stmt->bindParam(5, $input["hourly"]);
-    $stmt->bindParam(6, $input["id"]);
-
-    if($stmt->execute()) {
-        echo "更新されました。";
-    } else {
-        echo "更新に失敗しました。";
-    }
 }
 
 function display(){ //display(画面に表示)という関数を作成

@@ -12,7 +12,6 @@
             background-color: #C10837;
             display: flex;
             justify-content: space-between;
-            /* align-items: top; */
             color: #fff;
             padding: 0 30px;
             height: 200px;
@@ -24,16 +23,16 @@
         }
 
         header .nav{
-            display: flex;
-            align-items: top;
+            margin-top: 20px;
         }
 
         header .nav p{
             display: flex;
+            justify-content: flex-end;
             align-items: center;
-            margin-right: 8px;
-            margin-bottom: 110px;
+            margin-right: 12px;
         }
+
 
         header .nav p::after{
             display: block;
@@ -47,71 +46,93 @@
         }
 
         header a:hover{
-        color: #C10837;
-        transition: 0.3s;
-      }
+            color: #C10837;
+            transition: 0.3s;
+        }
 
-      main{
-        position: relative;
-    }
-    
-    .inner{
-        width: 90%;
-        border: #d7d7d7 solid 2px;
-        background-color: #fff;
-        z-index: 1000;
-        position: absolute;
-        top: -100px;
-        right: 0;
-        left: 0;
-        margin: 0 auto;
-    }
-
-    .inner h2{
-        font-size: 1.8rem;
-        border-bottom: #C10837 5px dashed;
-        width: 80%;
-        margin: 0 auto;
-        margin-top: 50px;
-        text-align: center;
-    }
-    
-    .search1 p{
-        font-size: 1.5rem;
-        text-align: center;
-        margin-top: 60px;
-    }
-
-    input[type="text"]{
-        width: 500px;
-        height: 30px;
-        display: block;
-        margin: 0 auto;
-    }
-
-    .button{
+        main{
+            position: relative;
+        }
         
-    }
+        .inner{
+            width: 90%;
+            border: #d7d7d7 solid 5px;
+            background-color: #fff;
+            z-index: 1000;
+            position: absolute;
+            top: -100px;
+            right: 0;
+            left: 0;
+            margin: 0 auto;
+        }
 
-    .search2 {
-        margin: 20px;
-        display: flex;
-    }
+        .inner h2{
+            font-size: 1.8rem;
+            border-bottom: #c10837 5px dashed;
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 70px;
+            text-align: center;
+        }
+        
+        .search1 p{
+            font-size: 1.5rem;
+            text-align: center;
+            margin-top: 60px;
+        }
 
-    .button_s{
-        padding: 5px;
-        display: block;
-        background-color: #585858;
-        color: white;
-        border: none;
-    }
+        input[type="text"]{
+            width: 550px;
+            height: 40px;
+            display: block;
+            margin: 0 auto;
+            border: #585858 2px solid;
+            font-size: 1.1rem;
+        }
 
-    .user_joblist{
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        margin: 30px 0;
-    }
+        .button{
+            width: 300px;
+            padding: 8px;
+            display: block;
+            margin: 0 auto;
+            background-color: #585858;
+            color: white;
+            font-size: 1.1rem;
+            /* margin-top: 40px; */
+            border: #585858 3px solid;
+        }
+
+        .button:hover{
+            background-color: #fff;
+            border: #585858 3px solid;
+            color: #585858;
+            transition: 0.3s;
+        }
+
+        .search2 {
+            margin: 20px;
+            display: flex;
+        }
+
+        .search2 form{
+            display: flex;
+            margin-left: 79%;
+        }
+
+        .button_s{
+            padding: 5px;
+            display: block;
+            background-color: #585858;
+            color: white;
+            border: none;
+        }
+
+        .user_joblist{
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 30px 0;
+        }
     </style>
 </head>
 <body>
@@ -119,7 +140,7 @@
         <h1>athome求人</h1>
         <div class="nav">
             <p><a href="login.html">管理者ページ</a></p>
-            <p><a href="user_fav.html">お気に入り</a></p>
+            <!-- <p><a href="user_fav.html">お気に入り</a></p> -->
         </div>
     </header>
 

@@ -17,14 +17,24 @@
         align-items: center;
         padding-left: 30px;
       }
-
-      header p{
-        display: flex;
-        align-items: center;
-        padding-right: 50px;
-      }
       
-      header p::after{
+      header a{
+        text-decoration: none;
+        color: #fff;
+      }
+
+      header .nav{
+        align-items: top;
+      }
+
+      header .nav p{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-right: 12px;
+      }
+
+      header .nav p::after{
         display: block;
         content: "";
         width: 10px;
@@ -35,12 +45,7 @@
         margin-left: 3px;
       }
 
-      header a{
-        text-decoration: none;
-        color: #fff;
-      }
-
-      header a:hover{
+        header a:hover{
         color: #C10837;
         transition: 0.3s;
       }
@@ -59,7 +64,6 @@
         color: 	#C10837;
       }
 
-      input[type="submit"],
       input[type="text"]
       {
         border: none;
@@ -82,39 +86,105 @@
         text-align: center;
       }
       
-      .form-table th,
       .form-table td {
-        border-top: 1px solid #d7d7d7;
-        border-bottom: 1px solid #d7d7d7;
+        border-bottom: 3px solid #d7d7d7;
+        border-top: 3px solid #d7d7d7;
         padding: 20px;
       }
 
       .button{
-          width: 300px;
-          padding: 10px;
-          display: block;
-          margin: 0 auto;
-          background-color: #585858;
-          color: white;
-          font-size: 1.1rem;
-          margin-top: 50px;
+        width: 300px;
+        padding: 10px;
+        display: block;
+        margin: 0 auto;
+        background-color: #585858;
+        color: white;
+        font-size: 1.1rem;
+        margin-top: 50px;
+        border: #585858 3px solid;
       }
 
-      .job_list table{
-          display: block;
-          border: 3px solid #d7d7d7;
+      .button:hover{
+        background-color: #fff;
+        border: #585858 3px solid;
+        color: #585858;
+        transition: 0.3s;
       }
 
-      .job_list table tr{
-        
+      .job_list table {
+        width: 100%;
+        border-collapse: collapse;
+        border: 1px solid #ddd;
+    }
+    
+    .job_list th, .job_list td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: center;
       }
+      
+    .job_list .id{    
+      width: 5%;
+    }
+
+    .job_list .shop_name{
+      width: 25%;
+    }
+
+    .job_list .slogan{
+      width: 35%;
+    }
+
+    .job_list .job{
+      width: 13%;
+    }
+
+    .job_list .station{
+      width: 7%;
+    }
+
+    .job_list .hourly{
+      width: 5%;
+    }
+
+    .job_list .edit, .job_list .delete {
+      min-width: 50px;
+      padding: 0;
+    }
+    
+    .job_list th {
+      background-color: #C10837;
+      color: #fff;
+    }
+    
+    .job_list tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    
+    .job_list tr:hover {
+      background-color: #f1f1f1;
+    }
+    
+    .job_list .edit input[type="submit"], .job_list .delete input[type="submit"] {
+      border: none;
+      cursor: pointer;
+    }
+    
+    .job_list .edit input[type="submit"]:hover, .job_list .delete input[type="submit"]:hover {
+      background-color: #C10837;
+      color: #fff;
+    }
+      
     </style>
 </head>
 
 <body>
     <header>
         <h1>管理者ページ</h1>
-        <p><a href="user.php">ユーザー画面へ</a></p>
+        <div class="nav">
+          <p><a href="user.php">ユーザー画面へ</a></p>
+          <p><a href="login.html">ログアウト</a></p>
+        </div>
     </header>
 
     <div class="form">
@@ -143,8 +213,8 @@
                     <td>時給</td>
                     <td><input type="text" name="hourly" value="" required></td>
                   </tr>
-                  </tbody>
-                  </table>
+                </tbody>
+            </table>
 
                     <input type="submit" value="登録" class="button">
                     <input type="hidden" name="mode" value="register">
@@ -156,12 +226,14 @@
         <h2>求人一覧</h2>
         <table>
             <tr>
-                <th>id</th>
-                <th>店名</th>
-                <th>キャッチコピー</th>
-                <th>職種</th>
-                <th>最寄り駅</th>
-                <th>時給</th>
+                <th class="id">id</th>
+                <th class="shop_name">店名</th>
+                <th class="slogan">キャッチコピー</th>
+                <th class="job">職種</th>
+                <th class="station">最寄り駅</th>
+                <th class="hourly">時給</th>
+                <th class="edit">編集</th>
+                <th class="delete">削除</th>
             </tr>
             <tr>
               !block! <!--データベースからとってきた値をここに挿入-->

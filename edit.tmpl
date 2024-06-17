@@ -4,53 +4,166 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	<title>管理者ページ</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<style>
+      header{
+        background-color: #C10837;
+        color: #fff;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 30px;
+      }
+      
+      header a{
+        text-decoration: none;
+        color: #fff;
+      }
+
+      header .nav{
+        align-items: top;
+      }
+
+      header .nav p{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-right: 12px;
+      }
+
+      header .nav p::after{
+        display: block;
+        content: "";
+        width: 10px;
+        height: 10px;
+        border-top: #fff 3px solid;
+        border-right: #fff 3px solid;
+        transform: rotate(45deg);
+        margin-left: 3px;
+      }
+
+        header a:hover{
+        color: #C10837;
+        transition: 0.3s;
+      }
+
+      .form,.job_list{
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      h2{
+        background-color: #fff;
+        width: fit-content;
+        padding: 10px;
+        border-radius: 10px;
+        border: #C10837 3px solid;
+        color: 	#C10837;
+      }
+
+      input[type="submit"],
+      input[type="text"]
+      {
+        border: none;
+      }
+      
+      input[type="text"]
+      {
+        background: #d7d7d7;
+        display: block;
+        font-size: 16px;
+        width: 80%;
+        height: 40px;
+        border-radius: 0;
+      }
+      
+      .form-table {
+        width: 80%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        text-align: center;
+      }
+      
+      .form-table td,tr {
+        border-bottom: 3px solid #d7d7d7;
+        padding: 20px;
+      }
+        
+      .id_cell{
+        border-top: 3px solid #d7d7d7;
+      }
+
+      .id_cell td{
+        height: 40px;
+      }
+
+      .button{
+          width: 300px;
+          padding: 10px;
+          display: block;
+          margin: 0 auto;
+          background-color: #585858;
+          color: white;
+          font-size: 1.1rem;
+          margin-top: 50px;
+      }
+
+      .job_list table{
+          display: block;
+          border: 3px solid #854e4e;
+      }
+
+	</style>
 </head>
 
 <body>
-	<!-- <ul>
-		<li><a href="kanri.php?mode=item">商品</a></li>
-		<li><a href="kanri.php?mode=logout">ログアウト</a></li>
-	</ul>
-	<br> -->
-	<!-- <h1>管理者ページ</h1> -->
+	<header>
+        <h1>管理者ページ</h1>
+        <div class="nav">
+          <p><a href="login.html">ログアウト</a></p>
+          <p><a href="kanri.php">管理者ページへ戻る</a></p>
+        </div>
+    </header>
 
-	<h2>求人編集</h2>
-	<form method="get" action="kanri.php">
-		<table>
-			<tr>
-				<td>商品ID</td>
-				<td>!id!</td>
-			</tr>
-			<tr>
-				<td>店名</td>
-				<td><input name="shop_name" type="text" value="!shop_name!"></td>
-			</tr>
-			<tr>
-				<td>キャッチコピー</td>
-				<td><input name="slogan" type="text" value="!slogan!"></td>
-			</tr>
-			<tr>
-				<td>職種</td>
-				<td><input name="job" type="text" value="!job!"></td>
-			</tr>
-			<tr>
-				<td>最寄り駅</td>
-				<td><input name="station" type="text" value="!station!"></td>
-			</tr>
-			<tr>
-				<td>時給</td>
-				<td><input name="hourly" type="text" value="!hourly!"></td>
-			</tr>
-			<tr>
-				<td colspan="2"><input type="submit" name="sub" value="更新"></td>
+	<div class="form">
+		<h2>求人編集</h2>
 
+		<form method="get" action="edit.php">
+			<table class="form-table">
+				<tr class="id_cell">
+					<td>商品ID</td>
+					<td>!id!</td>
+				</tr>
+				<tr>
+					<td>店名</td>
+					<td><input name="shop_name" type="text" value="!shop_name!"></td>
+				</tr>
+				<tr>
+					<td>キャッチコピー</td>
+					<td><input name="slogan" type="text" value="!slogan!"></td>
+				</tr>
+				<tr>
+					<td>職種</td>
+					<td><input name="job" type="text" value="!job!"></td>
+				</tr>
+				<tr>
+					<td>最寄り駅</td>
+					<td><input name="station" type="text" value="!station!"></td>
+				</tr>
+				<tr>
+					<td>時給</td>
+					<td><input name="hourly" type="text" value="!hourly!"></td>
+				</tr>
+				
+				</table>
+				
+				<input type="submit" name="sub" value="更新" class="button">
 				<input type="hidden" name="mode" value="update">
 				<input type="hidden" name="id" value="!id!">
-			</tr>
-		</table>
+				
+		</form>
+	</div>
 
-	</form>
-
-	</table>
 </body>
 </html>
