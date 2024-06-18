@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>申し込み</title>
+
+    <style>
+        header{
+            background-color: #C10837;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 30px;
+        }
+        
+        header a{
+            text-decoration: none;
+            color: #fff;
+        }
+
+        header .nav{
+            align-items: top;
+        }
+
+        header .nav p{
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-right: 12px;
+        }
+
+        header .nav p::after{
+            display: block;
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-top: #fff 3px solid;
+            border-right: #fff 3px solid;
+            transform: rotate(45deg);
+            margin-left: 3px;
+        }
+
+        header a:hover{
+            color: #C10837;
+            transition: 0.3s;
+        }
+
+        .form{
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        h2{
+            background-color: #fff;
+            width: fit-content;
+            padding: 10px;
+            border-radius: 10px;
+            border: #C10837 3px solid;
+            color: 	#C10837;
+        }
+
+        input[type="text"]
+        {
+            border: none;
+        }
+        
+        input[type="text"]
+        {
+            background: #d7d7d7;
+            display: block;
+            font-size: 16px;
+            width: 80%;
+            height: 40px;
+            border-radius: 0;
+        }
+        
+        .form-table {
+            width: 80%;
+            margin: 0 auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        
+        .form-table td {
+            border-bottom: 3px solid #d7d7d7;
+            border-top: 3px solid #d7d7d7;
+            padding: 20px;
+        }
+
+        .heigh_cell td{
+            height: 40px;
+        }
+
+        select{
+            width: 200px;
+        }
+
+        .button{
+            width: 300px;
+            padding: 10px;
+            display: block;
+            margin: 0 auto;
+            background-color: #585858;
+            color: white;
+            font-size: 1.1rem;
+            margin-top: 50px;
+            border: #585858 3px solid;
+        }
+
+        .button:hover{
+            background-color: #fff;
+            border: #585858 3px solid;
+            color: #585858;
+            transition: 0.3s;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>athome求人</h1>
+        <div class="nav">
+            <p><a href="login.html">管理者ページ</a></p>
+            <p><a href="user.html">トップページ</a></p>
+        </div>
+    </header>
+
+    <div class="form">
+        <h2>お申し込み</h2>
+
+        <form action="form.php" method="post">
+            <table class="form-table">
+                <tbody>
+                <tr>
+                    <td>お名前</td>
+                    <td><input type="text" name="name" value="" required></td>
+                </tr>
+                <tr>
+                    <td>生年月日</td>
+                    <td><input type="text" name="birthday" value="" required></td>
+                </tr>
+                <tr class="heigh_cell">
+                    <td>性別</td>
+                    <td>
+                        <input type="radio" name="gender" value="男性" required>男性
+                        <input type="radio" name="gender" value="女性" required>女性
+                        <input type="radio" name="gender" value="その他" required>その他
+                    </td>
+                </tr>
+                <tr>
+                    <td>電話番号</td>
+                    <td><input type="text" name="tel" value="" required></td>
+                </tr>
+                <tr>
+                    <td>メールアドレス</td>
+                    <td><input type="text" name="mail" value="" required></td>
+                </tr>
+                <tr class="heigh_cell">
+                    <td>職業</td>
+                    <td>
+                        <select name="work" id="">
+                            <option>選択してください</option>
+                            <option value="高校生">高校生</option>
+                            <option value="専門学生">専門学生</option>
+                            <option value="短大生">短大生</option>
+                            <option value="大学生">大学生</option>
+                            <option value="大学院生">大学院生</option>
+                            <option value="アルバイト">アルバイト</option>
+                            <option value="パート">パート</option>
+                        </select>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+                <input type="submit" value="申し込む" class="button">
+                <input type="hidden" name="mode" value="post">
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!doctype html>
+    <html>
+    <head>
+    <meta charset="utf-8">
+    <style>
+            input[type="text"]
+      {
+        border: none;
+      }
+      
+      input[type="text"]
+      {
+        background: #d7d7d7;
+        display: block;
+        font-size: 16px;
+        width: 80%;
+        height: 40px;
+        border-radius: 0;
+      }
+      
+      .form-table {
+        width: 80%;
+        margin: 50px auto 0;
+        border-collapse: collapse;
+        text-align: center;
+      }
+      
+      .form-table td {
+        border-bottom: 3px solid #d7d7d7;
+        border-top: 3px solid #d7d7d7;
+        padding: 20px;
+      }
+
+      .button_flex{
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .button{
+        width: 300px;
+        padding: 10px;
+        display: block;
+        margin: 0 auto;
+        background-color: #585858;
+        color: white;
+        font-size: 1.1rem;
+        margin-top: 50px;
+        border: #585858 3px solid;
+      }
+
+      .button:hover{
+        background-color: #fff;
+        border: #585858 3px solid;
+        color: #585858;
+        transition: 0.3s;
+      }
+
+    </style>
+    <title> 確認フォーム</title>
+</head>
+<body>
+    <p> 次の内容でよろしければ、送信ボタンを押してください。</p>
+
+
+    <form>
+        <table class="form-table">
+            <tbody>
+            <tr>
+                <td>お名前</td>
+                <td>!name!</td>
+            </tr>
+            <tr>
+                <td>生年月日</td>
+                <td>!birthday!</td>
+            </tr>
+            <tr class="heigh_cell">
+                <td>性別</td>
+                <td>!gender!</td>
+            </tr>
+            <tr>
+                <td>電話番号</td>
+                <td>!tel!</td>
+            </tr>
+            <tr>
+                <td>メールアドレス</td>
+                <td>!mail!</td>
+            </tr>
+            <tr class="heigh_cell">
+                <td>職業</td>
+                <td>!work!</td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <form action="form.php" method="post">
+        <input type="hidden" name="mode" value="send">
+        <input type="hidden" name="name" value="!name!">
+        <input type="hidden" name="birthday" value="!birthday!">
+        <input type="hidden" name="gender" value="!gender!">
+        <input type="hidden" name="tel" value="!tel!">
+        <input type="hidden" name="mail" value="!mail!">
+        <input type="hidden" name="work" value="!work!">
+        <div class="button_flex">
+            <input type="button" value=" 前に戻る" onclick="history.back()" class="button">
+            <input type="submit" value=" 送信する" class="button">
+        </div>
+    </form>
+</body>
+</html>

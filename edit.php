@@ -96,8 +96,23 @@ function update(){
     $stmt->bindParam(6, $input["id"]);
 
     if($stmt->execute()) {
-        echo "更新されました。";
-    } else {
+        echo '<p style="text-align: center;
+                        padding-top: 220px;
+                        font-size: 1.8rem;">
+                        更新されました。</p>';
+        echo    '<button style="width: 300px;
+                        padding: 8px;
+                        display: block;
+                        margin: 0 auto;
+                        background-color: #585858;
+                        color: white;
+                        font-size: 1.1rem;
+                        border: #585858 3px solid;
+                        margin-top: 30px;
+                        margin-bottom: 30px;
+                        text-align: center;
+                    }" onclick="location.href=\'kanri.php\'">管理ページへ</button>';
+        } else {
         echo "更新に失敗しました。";
     }
 }

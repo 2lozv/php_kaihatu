@@ -17,7 +17,7 @@
             height: 200px;
         }
 
-        header a{
+        a{
             color: #fff;
             text-decoration: none;
         }
@@ -98,8 +98,10 @@
             background-color: #585858;
             color: white;
             font-size: 1.1rem;
-            /* margin-top: 40px; */
             border: #585858 3px solid;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            text-align: center;
         }
 
         .button:hover{
@@ -107,6 +109,10 @@
             border: #585858 3px solid;
             color: #585858;
             transition: 0.3s;
+        }
+
+        .button a:hover{
+            color: #585858;
         }
 
         .search2 {
@@ -129,9 +135,9 @@
 
         .user_joblist{
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             flex-wrap: wrap;
-            margin: 30px 0;
+            padding: 20px;
         }
     </style>
 </head>
@@ -172,6 +178,8 @@
             <div class="user_joblist">
                 !block!
             </div>
+
+            <p class="button"><a href="user.php">トップに戻る</a></p>
         </div>
     </main>
 </body>
